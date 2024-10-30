@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.kanban-list::-webkit-scrollbar {
+    width: 0px;
+}
