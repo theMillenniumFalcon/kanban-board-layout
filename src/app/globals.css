@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .kanban-list::-webkit-scrollbar {
-    width: 0px;
+  width: 0px;
 }

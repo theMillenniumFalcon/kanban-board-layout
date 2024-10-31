@@ -1,7 +1,8 @@
 import { forwardRef } from 'react';
 import { cn } from '@/utils/cn';
 
-export interface ResponsiveControlProps extends React.HTMLAttributes<HTMLDivElement> {}
+export interface ResponsiveControlProps
+  extends React.HTMLAttributes<HTMLDivElement> {}
 
 export const ResponsiveControl = forwardRef<
   HTMLDivElement,

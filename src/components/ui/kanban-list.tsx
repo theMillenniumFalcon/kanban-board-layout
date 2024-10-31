@@ -1,5 +1,6 @@
 import { forwardRef, ReactNode } from 'react';
 import { cn } from '@/utils/cn';
+import { KanbanCard } from './kanban-card';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
 export interface KanbanListProps
@@ -27,8 +28,24 @@ export const KanbanList = forwardRef<HTMLDivElement, KanbanListProps>(
                 'kanban-list p-2 border-b-4 border-transparent rounded-xl bg-gray-100/80 min-w-[280px] w-fit max-w-[300px] h-[600px] overflow-y-scroll',
                 className,
               )}
-              {...args}
-            >
+              {...args}>
+              <div className="grid grid-cols-1 gap-2">
+                {listItems.map((card: KanbanCardType, index: number) => (
+                  <Draggable
+                    key={`${card.taskTitle.replaceAll(' ', '-')}-${card.ticketID}`}
+                    draggableId={`${card.taskTitle.replaceAll(' ', '-')}-${card.ticketID}`}
+                    index={index}>
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}>
+                        <KanbanCard key={index} {...card} index={index} />
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+              </div>
               {provided.placeholder}
             </div>
           )}

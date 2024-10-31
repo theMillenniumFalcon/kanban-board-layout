@@ -1,4 +1,3 @@
-'use client';
 import { createContext } from 'react';
 import { INITIAL_KANBAN_DATA } from '@/data/initial-kanban-data';
 
@@ -20,4 +19,5 @@ export const INITIAL_KANBAN_CONTEXT_DATA: KanbanBoardContextType = {
   setSearchQuery: () => {},
 } satisfies KanbanBoardContextType;
 
-export const KanbanBoardContext: React.Context<KanbanBoardContextType> = createContext<KanbanBoardContextType>(INITIAL_KANBAN_CONTEXT_DATA);
+export const KanbanBoardContext: React.Context<KanbanBoardContextType> =
+  createContext<KanbanBoardContextType>(INITIAL_KANBAN_CONTEXT_DATA);
